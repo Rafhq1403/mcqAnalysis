@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(itemAnalysis)
+library(mcqAnalysis)
 
-test_check("itemAnalysis")
+test_check("mcqAnalysis")

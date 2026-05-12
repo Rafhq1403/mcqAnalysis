@@ -1,4 +1,4 @@
-# itemAnalysis 0.1.0
+# mcqAnalysis 0.1.0
 
 * Initial CRAN release.
 * Implements classical test theory item analysis for multiple-choice

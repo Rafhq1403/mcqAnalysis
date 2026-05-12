@@ -1,9 +1,9 @@
-# itemAnalysis
+# mcqAnalysis
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/itemAnalysis)](https://CRAN.R-project.org/package=itemAnalysis)
-[![R-CMD-check](https://github.com/Rafhq1403/itemAnalysis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Rafhq1403/itemAnalysis/actions/workflows/R-CMD-check.yaml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Rafhq1403/itemAnalysis/blob/master/LICENSE.md)
+[![CRAN status](https://www.r-pkg.org/badges/version/mcqAnalysis)](https://CRAN.R-project.org/package=mcqAnalysis)
+[![R-CMD-check](https://github.com/Rafhq1403/mcqAnalysis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Rafhq1403/mcqAnalysis/actions/workflows/R-CMD-check.yaml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Rafhq1403/mcqAnalysis/blob/master/LICENSE.md)
 <!-- badges: end -->
 
 A unified R toolkit for **classical test theory (CTT) item analysis**
@@ -19,20 +19,20 @@ direct manuscript inclusion.
 Install the released version from CRAN:
 
 ```r
-install.packages("itemAnalysis")
+install.packages("mcqAnalysis")
 ```
 
 Or the development version from GitHub:
 
 ```r
 # install.packages("devtools")
-devtools::install_github("Rafhq1403/itemAnalysis")
+devtools::install_github("Rafhq1403/mcqAnalysis")
 ```
 
 ## Quick example
 
 ```r
-library(itemAnalysis)
+library(mcqAnalysis)
 data(mcq_example)
 
 # Complete item analysis in one call
@@ -75,12 +75,12 @@ apa_table(result, format = "markdown")
 The package implements widely-used classical test theory indices.
 Conventional cutoffs follow Ebel & Frisbie (1991) for discrimination
 and Haladyna & Downing (1993) for distractor efficiency. See the
-[getting-started vignette](https://CRAN.R-project.org/package=itemAnalysis)
+[getting-started vignette](https://CRAN.R-project.org/package=mcqAnalysis)
 for a complete worked example and references.
 
 ## Related packages
 
-`itemAnalysis` is designed to be a CTT-focused companion to its sister
+`mcqAnalysis` is designed to be a CTT-focused companion to its sister
 package [`contentValidity`](https://CRAN.R-project.org/package=contentValidity),
 which computes content-validity indices (I-CVI, S-CVI, modified kappa,
 Aiken's V, Lawshe's CVR). Together they cover pre-administration
@@ -94,10 +94,10 @@ psychometric utilities, see
 ## Citation
 
 ```r
-citation("itemAnalysis")
+citation("mcqAnalysis")
 ```
 
 ## License
 
-[MIT](https://github.com/Rafhq1403/itemAnalysis/blob/master/LICENSE.md)
+[MIT](https://github.com/Rafhq1403/mcqAnalysis/blob/master/LICENSE.md)
 © Rashed Alqahtani

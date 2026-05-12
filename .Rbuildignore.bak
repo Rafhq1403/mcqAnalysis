@@ -1,4 +1,4 @@
-^mcqAnalysis\.Rproj$
+^itemAnalysis\.Rproj$
 ^\.Rproj\.user$
 ^\.positai$
 ^\.claude$
@@ -9,5 +9,3 @@
 ^README\.Rmd$
 ^doc$
 ^Meta$
-\.bak$
-^\.Rhistory$

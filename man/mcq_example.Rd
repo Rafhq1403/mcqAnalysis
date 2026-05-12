@@ -17,7 +17,7 @@ answer for each item.}
 mcq_example
 }
 \description{
-A simulated dataset for demonstrating the itemAnalysis package. The
+A simulated dataset for demonstrating the mcqAnalysis package. The
 test contains 30 four-option multiple-choice items administered to
 200 students. The data are generated under a two-parameter logistic
 framework with a deliberately mixed mix of item quality:

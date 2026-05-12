@@ -1,4 +1,4 @@
-## Build mcq_example dataset for itemAnalysis package.
+## Build mcq_example dataset for mcqAnalysis package.
 ## A simulated 200-student, 30-item, 4-option multiple-choice test with
 ## a deliberately mixed mix of item quality so worked examples show
 ## different patterns of difficulty, discrimination, and distractor
