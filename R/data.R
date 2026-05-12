@@ -1,0 +1,31 @@
+#' Simulated multiple-choice test data
+#'
+#' A simulated dataset for demonstrating the itemAnalysis package. The
+#' test contains 30 four-option multiple-choice items administered to
+#' 200 students. The data are generated under a two-parameter logistic
+#' framework with a deliberately mixed mix of item quality:
+#' \itemize{
+#'   \item Items 1-8 are easy items with strong discrimination.
+#'   \item Items 9-24 are medium-difficulty items, most discriminating well.
+#'   \item Items 25-28 are harder items with progressively weaker discrimination.
+#'   \item Items 29-30 are deliberately badly-written items with negative
+#'         discrimination (high-ability students get them wrong more often).
+#'   \item Item 30 additionally has a "trap" distractor disproportionately
+#'         chosen by high-ability students, useful for demonstrating
+#'         distractor analysis.
+#' }
+#'
+#' @format A list with two components:
+#' \describe{
+#'   \item{responses}{A 200 x 30 character matrix of student responses
+#'     (values in `{"A", "B", "C", "D"}`).}
+#'   \item{key}{A named character vector of length 30 giving the correct
+#'     answer for each item.}
+#' }
+#'
+#' @examples
+#' data(mcq_example)
+#' str(mcq_example, max.level = 1)
+#' mcq_example$key
+#' head(mcq_example$responses)
+"mcq_example"

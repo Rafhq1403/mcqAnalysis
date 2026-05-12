@@ -1,0 +1,11 @@
+^itemAnalysis\.Rproj$
+^\.Rproj\.user$
+^\.positai$
+^\.claude$
+^data-raw$
+^cran-comments\.md$
+^LICENSE\.md$
+^\.github$
+^README\.Rmd$
+^doc$
+^Meta$

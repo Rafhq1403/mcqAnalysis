@@ -1,0 +1,197 @@
+---
+title: "Getting started with itemAnalysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with itemAnalysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.align = "center",
+  fig.width = 7,
+  fig.height = 5,
+  out.width = "85%"
+)
+library(itemAnalysis)
+```
+
+# Overview
+
+The **itemAnalysis** package provides a unified toolkit for classical
+test theory (CTT) item analysis of multiple-choice tests. It computes
+item difficulty, item discrimination (point-biserial correlation and
+upper-lower 27 percent discrimination index), per-distractor analysis,
+and Haladyna's distractor efficiency, and packages the results into a
+tidy `mcq_analysis` object with dedicated `print`, `plot`, and
+`apa_table` methods.
+
+This vignette walks through a complete item analysis using the
+package's example dataset.
+
+# Installation
+
+Install the released version from CRAN:
+
+```{r install-cran, eval = FALSE}
+install.packages("itemAnalysis")
+```
+
+Or the development version from GitHub:
+
+```{r install-gh, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("Rafhq1403/itemAnalysis")
+```
+
+# Example data
+
+The package ships with `mcq_example`, a simulated 200-student, 30-item,
+four-option multiple-choice test. The dataset is constructed so that
+items span the full range of quality: easy items, ideal medium-difficulty
+items, hard items with declining discrimination, and two deliberately
+badly-written items with negative discrimination.
+
+```{r data}
+data(mcq_example)
+str(mcq_example, max.level = 1)
+mcq_example$key[1:6]
+head(mcq_example$responses[, 1:6])
+```
+
+# Complete analysis with `mcq_analysis()`
+
+The wrapper function `mcq_analysis()` runs every item-level computation
+in a single call and returns an `mcq_analysis` S3 object.
+
+```{r main}
+result <- mcq_analysis(mcq_example$responses, mcq_example$key)
+result
+```
+
+The default print method shows test-level summaries (number of students,
+number of items, mean and SD of total scores) and an item-level table
+with difficulty, point-biserial, discrimination index, and distractor
+efficiency.
+
+# Visualizing item quality
+
+The `plot()` method produces a difficulty-discrimination scatter — the
+classical "item quality map" used for visually identifying items that
+fall outside conventional adequacy cutoffs. By default, only flagged
+items are labeled, keeping the plot legible when many items cluster
+in the acceptable region.
+
+```{r plot}
+plot(result)
+```
+
+Items in **red** are flagged because they violate at least one of the
+default adequacy criteria: difficulty outside [0.30, 0.90] or
+discrimination below 0.30. Items 29 and 30 have *negative*
+discrimination — high-ability students get them wrong more often
+than low-ability students, indicating poorly written distractors or
+a mis-keyed answer.
+
+To label every item or to plot the upper-lower 27 percent
+discrimination index instead of the point-biserial:
+
+```{r plot-variants, eval = FALSE}
+plot(result, label = "all")
+plot(result, discrimination_metric = "discrimination_index")
+```
+
+# Per-distractor analysis
+
+For diagnosing specific problematic items, the `distractor_analysis()`
+function returns a per-option breakdown showing how each response
+option performed.
+
+```{r distractors}
+da <- distractor_analysis(mcq_example$responses, mcq_example$key)
+head(da, 8)
+```
+
+For each item-option combination, the output reports the option's
+selection frequency, the proportion of examinees choosing it, whether
+it is the key, and its point-biserial correlation with the total test
+score. The key should have a clearly positive point-biserial; each
+distractor should have a non-trivial selection proportion and a
+negative point-biserial.
+
+Inspect a specific problematic item:
+
+```{r item30}
+da[da$item == "item30", ]
+```
+
+# Distractor efficiency
+
+`distractor_efficiency()` summarizes the per-option analysis into a
+single integer per item: the count of functioning distractors. A
+distractor is "functioning" if it is selected by at least 5 percent of
+examinees and has a negative point-biserial with the total score
+(Haladyna & Downing, 1993).
+
+```{r de}
+de <- distractor_efficiency(mcq_example$responses, mcq_example$key)
+de[1:10]
+```
+
+For a four-option item, distractor efficiency ranges from 0 (no
+functioning distractors — the item is essentially a two-option item)
+to 3 (all three distractors functioning — the item is performing at
+full capacity).
+
+# Publication-ready output with `apa_table()`
+
+The `apa_table()` method formats the item analysis as a
+publication-ready APA-style table in data-frame, markdown, HTML, or
+LaTeX form.
+
+```{r apa-df}
+apa_table(result, format = "data.frame")[1:8, ]
+```
+
+The data-frame output includes interpretive columns based on
+conventional CTT cutoffs (Ebel & Frisbie, 1991). For inclusion in an
+R Markdown manuscript:
+
+```{r apa-md, eval = FALSE}
+apa_table(result, format = "markdown")
+```
+
+# Individual functions
+
+If you do not need the full wrapper, each component statistic is
+available as a standalone function:
+
+```{r individual}
+item_difficulty(mcq_example$responses, mcq_example$key)[1:6]
+point_biserial(mcq_example$responses, mcq_example$key)[1:6]
+item_discrimination(mcq_example$responses, mcq_example$key,
+                    method = "discrimination_index")[1:6]
+```
+
+All functions share the same input convention: a matrix or data frame
+of student responses (students in rows, items in columns) and a vector
+of correct answers with one entry per item.
+
+# References
+
+Ebel, R. L., & Frisbie, D. A. (1991). *Essentials of educational
+measurement* (5th ed.). Prentice Hall.
+
+Haladyna, T. M. (2004). *Developing and validating multiple-choice
+test items* (3rd ed.). Lawrence Erlbaum Associates.
+
+Haladyna, T. M., & Downing, S. M. (1993). How many options is enough
+for a multiple-choice test item? *Educational and Psychological
+Measurement*, 53(4), 999-1010.
+
+Kelley, T. L. (1939). The selection of upper and lower groups for
+the validation of test items. *Journal of Educational Psychology*,
+30(1), 17-24.

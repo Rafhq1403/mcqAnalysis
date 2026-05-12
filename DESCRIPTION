@@ -1,0 +1,35 @@
+Package: itemAnalysis
+Title: Classical Test Theory Item Analysis for Multiple-Choice Tests
+Version: 0.1.0
+Authors@R:
+    person("Rashed", "Alqahtani", , "rashed.alqahtani@gmail.com",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-3317-204X"))
+Description: A unified toolkit for classical test theory (CTT) item analysis
+    of multiple-choice test data, including item difficulty (p-value),
+    item discrimination (point-biserial correlation and upper-lower
+    27-percent discrimination index), per-distractor analysis (frequency,
+    proportion, and discrimination), and Haladyna's distractor efficiency.
+    A wrapper function returns a tidy 'mcq_analysis' object with print,
+    plot (difficulty-discrimination scatter), and APA-style table methods
+    for direct inclusion in journal manuscripts. Implemented in pure R with
+    no compiled code and minimal dependencies.
+License: MIT + file LICENSE
+URL: https://github.com/Rafhq1403/itemAnalysis
+BugReports: https://github.com/Rafhq1403/itemAnalysis/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Depends:
+    R (>= 3.5)
+Imports:
+    stats,
+    graphics,
+    grDevices
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+LazyData: true
+Config/testthat/edition: 3
+Config/roxygen2/version: 8.0.0

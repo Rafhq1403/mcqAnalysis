@@ -1,0 +1,19 @@
+citHeader("To cite the itemAnalysis package in publications, please use:")
+
+year <- format(Sys.Date(), "%Y")
+note <- sprintf("R package version %s", meta$Version)
+
+bibentry(
+  bibtype = "Manual",
+  title   = "{itemAnalysis}: Classical Test Theory Item Analysis for Multiple-Choice Tests",
+  author  = person("Rashed", "Alqahtani"),
+  year    = year,
+  note    = note,
+  url     = "https://github.com/Rafhq1403/itemAnalysis",
+  textVersion = paste0(
+    "Alqahtani, R. (", year,
+    "). itemAnalysis: Classical Test Theory Item Analysis for Multiple-Choice Tests. ",
+    note, ". ",
+    "https://github.com/Rafhq1403/itemAnalysis"
+  )
+)
