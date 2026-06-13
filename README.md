@@ -4,6 +4,7 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/mcqAnalysis)](https://CRAN.R-project.org/package=mcqAnalysis)
 [![R-CMD-check](https://github.com/Rafhq1403/mcqAnalysis/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Rafhq1403/mcqAnalysis/actions/workflows/R-CMD-check.yaml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Rafhq1403/mcqAnalysis/blob/master/LICENSE.md)
+[![DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.softx.2026.102797-blue.svg)](https://doi.org/10.1016/j.softx.2026.102797)
 <!-- badges: end -->
 
 A unified R toolkit for **classical test theory (CTT) item analysis**
@@ -91,7 +92,28 @@ API. For inter-rater agreement statistics beyond content validity, see
 psychometric utilities, see
 [`psych`](https://CRAN.R-project.org/package=psych).
 
-## Citation
+## How to cite
+
+If you use `mcqAnalysis` in your work, please cite the SoftwareX paper:
+
+> Alqahtani, R. (2026). McqAnalysis: Classical test theory item analysis for multiple-choice tests in R. *SoftwareX*, *35*, 102797.
+> <https://doi.org/10.1016/j.softx.2026.102797>
+
+BibTeX:
+
+```bibtex
+@article{alqahtani2026mcqanalysis,
+  title   = {McqAnalysis: Classical test theory item analysis for multiple-choice tests in {R}},
+  author  = {Alqahtani, Rashed},
+  journal = {SoftwareX},
+  year    = {2026},
+  volume  = {35},
+  pages   = {102797},
+  doi     = {10.1016/j.softx.2026.102797}
+}
+```
+
+You can also retrieve the citation directly in R:
 
 ```r
 citation("mcqAnalysis")

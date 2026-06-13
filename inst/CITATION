@@ -1,19 +1,20 @@
 citHeader("To cite the mcqAnalysis package in publications, please use:")
 
-year <- format(Sys.Date(), "%Y")
-note <- sprintf("R package version %s", meta$Version)
-
 bibentry(
-  bibtype = "Manual",
-  title   = "{mcqAnalysis}: Classical Test Theory Item Analysis for Multiple-Choice Tests",
-  author  = person("Rashed", "Alqahtani"),
-  year    = year,
-  note    = note,
-  url     = "https://github.com/Rafhq1403/mcqAnalysis",
-  textVersion = paste0(
-    "Alqahtani, R. (", year,
-    "). mcqAnalysis: Classical Test Theory Item Analysis for Multiple-Choice Tests. ",
-    note, ". ",
-    "https://github.com/Rafhq1403/mcqAnalysis"
+  bibtype  = "Article",
+  title    = "{McqAnalysis}: Classical test theory item analysis for multiple-choice tests in {R}",
+  author   = person("Rashed", "Alqahtani"),
+  journal  = "SoftwareX",
+  year     = "2026",
+  volume   = "35",
+  pages    = "102797",
+  doi      = "10.1016/j.softx.2026.102797",
+  url      = "https://doi.org/10.1016/j.softx.2026.102797",
+  textVersion = paste(
+    "Alqahtani, R. (2026).",
+    "McqAnalysis: Classical test theory item analysis for",
+    "multiple-choice tests in R.",
+    "SoftwareX, 35, 102797.",
+    "https://doi.org/10.1016/j.softx.2026.102797"
   )
 )
