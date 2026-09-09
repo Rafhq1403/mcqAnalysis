@@ -15,7 +15,7 @@ Description: A unified toolkit for classical test theory (CTT) item analysis
     for direct inclusion in journal manuscripts. Implemented in pure R with
     no compiled code and minimal dependencies.
 License: MIT + file LICENSE
-URL: https://github.com/Rafhq1403/mcqAnalysis
+URL: https://rafhq1403.github.io/mcqAnalysis/, https://github.com/Rafhq1403/mcqAnalysis
 BugReports: https://github.com/Rafhq1403/mcqAnalysis/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

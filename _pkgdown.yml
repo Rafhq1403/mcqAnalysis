@@ -58,7 +58,6 @@ reference:
     contents:
       - mcq_analysis
       - plot.mcq_analysis
-      - print.mcq_analysis
       - apa_table
 
   - title: Bundled dataset
