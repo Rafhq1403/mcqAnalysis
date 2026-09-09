@@ -11,3 +11,7 @@
 ^Meta$
 \.bak$
 ^\.Rhistory$
+^CRAN-SUBMISSION$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

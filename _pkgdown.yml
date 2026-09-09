@@ -1,0 +1,73 @@
+url: https://rafhq1403.github.io/mcqAnalysis/
+
+template:
+  bootstrap: 5
+  bslib:
+    primary: "#2C3E50"
+    base_font: {google: "Source Sans 3"}
+    heading_font: {google: "Source Sans 3"}
+    code_font: {google: "Source Code Pro"}
+
+home:
+  title: mcqAnalysis
+  description: >
+    A unified R package for classical test theory item analysis of
+    multiple-choice tests.
+  sidebar:
+    structure: [links, citation, license, community, authors, dev]
+  links:
+    - text: CRAN
+      href: https://CRAN.R-project.org/package=mcqAnalysis
+    - text: SoftwareX paper
+      href: https://doi.org/10.1016/j.softx.2026.102797
+    - text: Zenodo archive
+      href: https://doi.org/10.5281/zenodo.20411810
+
+navbar:
+  structure:
+    left:  [intro, reference, articles, news]
+    right: [search, github]
+  components:
+    articles:
+      text: Articles
+      menu:
+        - text: Getting started
+          href: articles/getting-started.html
+
+reference:
+  - title: Item-level statistics
+    desc: >
+      Compute item difficulty and discrimination from a response matrix
+      (examinees in rows, items in columns) and an answer key.
+    contents:
+      - item_difficulty
+      - item_discrimination
+      - point_biserial
+
+  - title: Distractor analysis
+    desc: >
+      Per-option statistics and Haladyna's distractor efficiency.
+    contents:
+      - distractor_analysis
+      - distractor_efficiency
+
+  - title: Full analysis and output
+    desc: >
+      One-call wrapper returning an mcq_analysis S3 object with
+      dedicated print, plot, and APA-table methods.
+    contents:
+      - mcq_analysis
+      - plot.mcq_analysis
+      - print.mcq_analysis
+      - apa_table
+
+  - title: Bundled dataset
+    contents:
+      - mcq_example
+
+authors:
+  Rashed Alqahtani:
+    href: https://orcid.org/0000-0002-3317-204X
+
+development:
+  mode: auto
